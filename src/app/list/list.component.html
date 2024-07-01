@@ -12,7 +12,7 @@
                           </div>
                     
                           <div class="input-field col s3">
-                            <button type="submit" class="btn waves-effect waves-light blue"><b class="material-icons inline-icon">add</b></button>
+                            <button type="submit" class="btn waves-effect waves-light blue btn-primary"><b class="material-icons inline-icon">add</b></button>
                           </div>
                         </div>
                       </form>
@@ -23,38 +23,30 @@
                     </ul> -->
                     <div class="todo-list">
                         <div *ngIf = "items.length > 0; else noitems">
-                            <div *ngFor = "let item of items">
+                            <div *ngFor = "let item of items" >
                                 <div class="todo-item">
                                     <div class="checker">
                                         <span class="">
                                             <input type="checkbox">
                                         </span>
                                     </div>
-                                    <span>{{item}}</span>
-                                    <button type="submit" class="btn btn-danger">Remove</button>
-                                    <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
+                                    
+                                    <div class="task-text" >      {{item.string}}</div>
+                                    <div class="button-container"> 
+                                        <span>
+                                            <button (click)="delete(item.number)" type="submit" class="btn btn-danger">Remove</button>
+                                            <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
+
+                            
                         </div>
                         <ng-template #noitems>
-                            I have no items!
+                            You have no tasks.
                         </ng-template>
-                        <div class="todo-item">
-                            <div class="checker"><span class=""><input type="checkbox"></span></div>
-                            <span>Work on wordpress</span>
-                            <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
-                        </div>
                         
-                        <div class="todo-item">
-                            <div class="checker"><span class=""><input type="checkbox"></span></div>
-                            <span>Organize office main department</span>
-                            <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
-                        </div>
-                        <div class="todo-item">
-                            <div class="checker"><span><input type="checkbox"></span></div>
-                            <span>Error solve in HTML template</span>
-                            <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
-                        </div>
                     </div>
                 </div>
             </div>
