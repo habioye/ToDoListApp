@@ -3,20 +3,42 @@
         <div class="col-md-12">
             <div class="card card-white">
                 <div class="card-body">
-                    <form action="javascript:void(0);">
-                        <input type="text" class="form-control add-task" placeholder="New Task...">
-                    </form>
+                    <form class="todo-form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+                        <div class="row">
+                          <div class="input-field col s9">
+                            
+                            <label for="title">Enter Task: </label>
+                            <input type="text" name="title" id="title" [(ngModel)]="inputValue">
+                          </div>
+                    
+                          <div class="input-field col s3">
+                            <button type="submit" class="btn waves-effect waves-light blue"><b class="material-icons inline-icon">add</b></button>
+                          </div>
+                        </div>
+                      </form>
                     <!-- <ul class="nav nav-pills todo-nav">
                         <li role="presentation" class="nav-item all-task active"><a href="#" class="nav-link">All</a></li>
                         <li role="presentation" class="nav-item active-task"><a href="#" class="nav-link">Active</a></li>
                         <li role="presentation" class="nav-item completed-task"><a href="#" class="nav-link">Completed</a></li>
                     </ul> -->
                     <div class="todo-list">
-                        <div class="todo-item">
-                            <div class="checker"><span class=""><input type="checkbox"></span></div>
-                            <span>Create theme</span>
-                            <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
+                        <div *ngIf = "items.length > 0; else noitems">
+                            <div *ngFor = "let item of items">
+                                <div class="todo-item">
+                                    <div class="checker">
+                                        <span class="">
+                                            <input type="checkbox">
+                                        </span>
+                                    </div>
+                                    <span>{{item}}</span>
+                                    <button type="submit" class="btn btn-danger">Remove</button>
+                                    <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
+                                </div>
+                            </div>
                         </div>
+                        <ng-template #noitems>
+                            I have no items!
+                        </ng-template>
                         <div class="todo-item">
                             <div class="checker"><span class=""><input type="checkbox"></span></div>
                             <span>Work on wordpress</span>
