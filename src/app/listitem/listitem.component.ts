@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './listitem.component.css'
 })
 export class ListitemComponent {
-    @Input() item: {name: string };
+    @Input() item: {name: string} = {name: ''};
     
 }
