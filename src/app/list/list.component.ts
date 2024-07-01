@@ -32,6 +32,7 @@ export class ListComponent {
     // console.log(input.value.title,"cooked");
     let add = {string: input.value.title,number: this.id};
     console.log(add.string);
+    // localStorage.setItem(number,)
 
     this.items.push(
       {string: input.value.title,
@@ -39,6 +40,7 @@ export class ListComponent {
       // add
     );
     this.id+=1;
+    this.inputValue = ""
 
 
     
@@ -46,7 +48,18 @@ export class ListComponent {
     // this.items.push(new ListitemComponent());
 
   }
-  delete() {
-throw new Error('Method not implemented.');
+  delete(input:number) {
+// console.log("working",input);
+// console.log("before",this.items.length);
+// this.items = this.items.filter((item)=>{return item.number != input})
+for(let i = 0; i < this.items.length;i++) {
+  if (this.items[i].number == input) {
+    this.items.splice(i,1);
+    break;
+  }
+}
+// console.log("after",this.items.length);
+
+
 }
 }

@@ -3,17 +3,28 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ListComponent } from './list/list.component';
+import { HeaderComponent } from './header/header.component';
+import { FormsModule } from '@angular/forms';
+import { SimpleserviceService } from './simpleservice.service';
+import { ListitemComponent } from './listitem/listitem.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListComponent,
+    HeaderComponent,
+    ListitemComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    SimpleserviceService
   ],
   bootstrap: [AppComponent]
 })
